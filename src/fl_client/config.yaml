@@ -1,0 +1,11 @@
+
+flwr_server_address: "[::1]:50052"
+socketio_address: "http://127.0.0.1:6000"
+
+train_bearings_per_clients:
+  0: ["Bearing1_1", "Bearing1_2"]
+  1: ["Bearing2_1", "Bearing2_2"]
+  2: ["Bearing3_1", "Bearing3_2"]
+num_client_train_epochs: 3
+learning_rate: null # null further to use default learning rate
+DEBUG: False

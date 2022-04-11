@@ -1,0 +1,65 @@
+stages:
+  - Static Analysis
+  - Unit Test
+  - Build
+
+image: "python:3.8"
+
+before_script:
+  - python -v
+  - git config --global user.email "test@example.com"
+  - git config --global user.name "Tester"
+  - git config --global url."https://$GIT_USER:$GIT_TOKEN@gitlab.inovex.de".insteadOf https://gitlab.inovex.de
+  - pip install -r requirements.txt
+
+pylint_code:
+  stage: Static Analysis
+  tags:
+    - shared
+  script:
+    - pip install pylint
+    - pylint src/*
+
+pylint_test:
+  stage: Static Analysis
+  tags:
+    - shared
+  script:
+    - |
+      if [ -f "./test-requirements.txt" ]; then
+        pip install -r test-requirements.txt
+      fi
+    - pip install pylint
+    - pylint tests/*
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
+      allow_failure: true
+
+black:
+  stage: Static Analysis
+  tags:
+    - shared
+  script:
+    - pip install black
+    - black --check src/
+    - black --check tests/
+
+# test:
+#   stage: Unit Test
+#   before_script:
+#     - python --version
+#     - pip install -r requirements.txt
+#     - pip install -r tests/test_requirements.txt
+#     - python setup.py develop
+#   tags:
+#     - shared
+#   script:
+#     - python -m unittest discover
+
+build:
+  stage: Build
+  tags:
+    - shared
+  script:
+    - pip install wheel
+    - python setup.py sdist bdist_wheel

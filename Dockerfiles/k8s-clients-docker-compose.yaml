@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+
+  kosmos_fl_client_0:
+    container_name: kosmos_fl_client_0
+    image: kosmos_fl_client:latest
+    entrypoint: ["/app/venv/bin/python", "kosmos_fl_client.py"]
+    environment:
+      - DYNACONF_flwr_server_address=85.215.230.208:80
+      - DYNACONF_socketio_address=https://kosmos.federated-learning.kosmos.idcp.inovex.io
+
+  kosmos_fl_client_1:
+    container_name: kosmos_fl_client_1
+    image: kosmos_fl_client:latest
+    entrypoint: ["/app/venv/bin/python", "kosmos_fl_client.py"]
+    environment:
+      - DYNACONF_flwr_server_address=85.215.230.208:80
+      - DYNACONF_socketio_address=https://kosmos.federated-learning.kosmos.idcp.inovex.io
+
+  kosmos_fl_client_2:
+    container_name: kosmos_fl_client_2
+    image: kosmos_fl_client:latest
+    entrypoint: ["/app/venv/bin/python", "kosmos_fl_client.py"]
+    environment:
+      - DYNACONF_flwr_server_address=85.215.230.208:80
+      - DYNACONF_socketio_address=https://kosmos.federated-learning.kosmos.idcp.inovex.io
