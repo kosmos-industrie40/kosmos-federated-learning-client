@@ -8,7 +8,7 @@ DESCRIPTION
 This repository implements a federated learning client. The client is part of the KOSMoS Federated Learning Framework 
 which consists of two additional components: the `KOSMoS Federated Learning Server <https://github.com/kosmos-industrie40/kosmos-federated-learning-server>`_ and the `KOSMoS Federated Learning Resources <https://github.com/kosmos-industrie40/kosmos-federated-learning-resources>`_ project.
 This project is able to run with any arbitrary data set but by default is executed with the bearing data set.
-For further information on design principals take a look at the `blogpost <https://www.inovex.de/de/blog/federated-learning-part-3/>`_ describing the whole project.
+For further information on design principals take a look at the `blogpost <https://www.inovex.de/de/blog/federated-learning-implementation-into-kosmos-part-3/>`_ describing the whole project.
 
 
 USE CASE
