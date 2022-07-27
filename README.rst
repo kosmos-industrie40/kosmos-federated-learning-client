@@ -151,6 +151,12 @@ Note that the bearings available for training and testing are chosen distinctive
 Because of the nature of federated learning, a bearing should only be used either in test or as a
 client train data.
 
+Developer Guide
+===============
+
+A guide on how to create new use cases and add new models can be found `here <https://github.com/kosmos-industrie40/kosmos-federated-learning-resources/blob/release/HOWTO.rst>`_.
+
+
 .. _pyscaffold-notes:
 
 Note
